@@ -1,0 +1,51 @@
+# File Read 
+file1 = File.open("Sample.txt")				#opening file
+
+data= file1.read
+puts "Reading sample.txt in one hop "
+puts data
+
+puts "\nReading Sample2.txt line by line"
+file2 = File.open("Sample2.txt")
+File.foreach(file2) do |line|
+	puts line
+	puts "Seperater"
+end
+
+
+
+
+#File Write
+
+f1= File.open("Writing.txt","w") 
+f1.write("This file is written by a Ruby Program")
+
+
+
+
+#file append
+
+file_handle= File.open("Writing.txt","a")
+file_handle.write("\nThis text is appended by Ruby program")
+
+
+
+#other file operations
+
+#File.rename("Writing","Writing#rename(old_nm,new_nm)
+
+puts "Sample2.txt  Size: #{File.size("Sample2.txt")} bytes" 	#file size in bytes
+
+puts "Login file exists" if File.exist?("login.rb")					#printing message if file exists
+
+puts "Sample file exists" if File.exist?("Sample.txt")				
+
+puts "Location of Sample2.txt is #{File.dirname("/ruby_training/Sample2.txt")}"	#return location of file
+
+puts "Basename of file /ruby_training/Sample2.txt is #{File.basename("/ruby_training/Sample2.txt")}"
+
+puts "WritingPad was recently appended on #{File.atime("Writing.txt")}"	#returns last append time
+
+if File.delete("Garbage.txt")
+	puts "Garbage.txt is deleted"
+end
