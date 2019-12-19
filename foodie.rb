@@ -65,33 +65,35 @@ class OrderManager
 end
 
 O1=OrderManager.new
-ch="Y"
-while ch=="Y"||ch=="y"
-	puts "----Order Management System----"
-	puts "\t1.Take Order"
-	puts "\t2.Change Status"
-	puts "\t3.Display Order"
-	puts "Which Operation: "
-	op = gets.to_i
-	case op
+choice="Y"
+while choice=="Y"||choice=="y"
+	puts "\n----Order Management System----"
+	puts " 1.Take Order"
+	puts " 2.Change Status"
+	puts " 3.Display Order"
+	puts " 4.Exit"
+	print "Which Operation: "
+	op_no = gets.to_i
+	case op_no
 		when 1
 			O1.newOrder
 		
 		when 2
 			print "Enter O_id: "
-			id = gets.to_i
+			id = gets.to_i-1
 			O1.changeStatus(id)
 		
 		when 3
 			print "Enter O_id: "
 			id = gets.to_i-1
 			O1.displayOrder(id)
-	
+
+		when 4
+			choice="N"
+
 		else
 			puts "Invalid Operation"
 	end
-	puts "Do you want to Continue?..."
-	ch = gets.chomp
 end
 
 
